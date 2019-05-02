@@ -48,13 +48,11 @@ class MainViewController: UIViewController, UISearchBarDelegate {
             
             mapView.addAnnotation(annotation)
             updateInfo("\(self.mapView.annotations.count) place(s) on map")
-            
-            let lifespan = 1.0 * Double(year - 1990)
-            print("year:\(year), ttl:\(lifespan)")
-            
-            annotation.setLifespan(lifespan) {
+
+            annotation.setLifespan(year) {
                 self.mapView.removeAnnotation(annotation)
                 if self.mapView.annotations.count > 0 {
+                    self.mapView.showAnnotations(self.mapView.annotations, animated: true)
                     self.updateInfo("\(self.mapView.annotations.count) place(s) on map")
                 } else {
                     self.updateInfo("No places on map")

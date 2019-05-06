@@ -36,9 +36,9 @@ class MainViewController: UIViewController, UISearchBarDelegate {
     }
 
     func processPlace(_ place: Place) {
-        guard let lat = place.coordinates?.latitude?.doubleValue
-            , let lng = place.coordinates?.longitude?.doubleValue
-            , let year = place.lifespan?.begin?.integerValue
+        guard let lat = place.coordinates?.latitude?.doubleValue,
+            let lng = place.coordinates?.longitude?.doubleValue,
+            let year = place.lifespan?.begin?.integerValue
             else { return }
         
         let annotation = MKPointAnnotation()
@@ -88,4 +88,3 @@ class MainViewController: UIViewController, UISearchBarDelegate {
         }
     }
 }
-

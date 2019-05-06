@@ -9,7 +9,7 @@
 import Foundation
 
 struct Place: Codable {
-    var id: String?
+    var pid: String?
     var type: String?
     var score: Int?
     var name: String?
@@ -17,7 +17,7 @@ struct Place: Codable {
     var lifespan: Lifespan?
     
     private enum CodingKeys: String, CodingKey {
-        case id
+        case pid = "id"
         case type
         case score
         case name

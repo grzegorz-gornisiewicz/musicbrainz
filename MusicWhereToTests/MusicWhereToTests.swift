@@ -10,7 +10,7 @@ import XCTest
 @testable import MusicWhereTo
 
 class MusicWhereToTests: XCTestCase {
-    var req:PlacesRequest?
+    var req: PlacesRequest?
     
     override func setUp() {
         super.setUp()
@@ -25,7 +25,7 @@ class MusicWhereToTests: XCTestCase {
     func testGettingJazzPlaces() {
         let expectation = XCTestExpectation(description: "Test getting Jazz places")
         
-        req?.find("Jazz") { (places, error) in
+        req?.find("Jazz") { (places, _) in
             XCTAssert(places.count > 0)
             XCTAssert(places.count <= 20)
             expectation.fulfill()
@@ -37,7 +37,7 @@ class MusicWhereToTests: XCTestCase {
     func testGettingRockPlaces() {
         let expectation = XCTestExpectation(description: "Test getting Rock places")
         
-        req?.find("Rock", 1) { (places, error) in
+        req?.find("Rock", 1) { (places, _) in
             XCTAssert(places.count == 1)
             expectation.fulfill()
         }
@@ -48,7 +48,7 @@ class MusicWhereToTests: XCTestCase {
     func testGettingGrungePlaces() {
         let expectation = XCTestExpectation(description: "Test getting Warsaw places")
         
-        req?.find("Warsaw", 0) { (places, error) in
+        req?.find("Warsaw", 0) { (places, _) in
             XCTAssert(places.count > 20)
             expectation.fulfill()
         }

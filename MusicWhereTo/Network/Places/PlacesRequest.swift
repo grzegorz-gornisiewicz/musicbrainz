@@ -14,7 +14,7 @@ class PlacesRequest {
 
     let apiURL = "https://musicbrainz.org/ws/2/place"
 
-    func find(_ searchTerm: String, _ limit: Int = 20, completion: @escaping ([Place], _ error:Error?) -> Void) {
+    func find(_ searchTerm: String, _ limit: Int = 20, completion: @escaping ([Place], _ error: Error?) -> Void) {
         if var urlComponents = URLComponents(string: apiURL) {
             urlComponents.query = "query=\(searchTerm)&fmt=json&limit=\(limit)&offset=\(offset)"
 
@@ -22,7 +22,7 @@ class PlacesRequest {
             
             guard let url = urlComponents.url else { return }
 
-            URLSession.shared.dataTask(with: url, completionHandler: { (data, response, _) in
+            URLSession.shared.dataTask(with: url, completionHandler: { (data, _, _) in
                 guard let data = data else { return }
                 let decoder = JSONDecoder()
                 do {
